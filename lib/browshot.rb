@@ -69,7 +69,7 @@ class Browshot
     def simple_file(file='', parameters={})
         data = self.simple(parameters)
         if (data[:png].length > 0)
-            File.open(file, 'w') {|f| f.write(data[:png]).force_encoding('UTF-8') }
+            File.open(file, 'wb') {|f| f.write(data[:png]) }
             return {:code => data[:code], :file => file}
         else
             return {:code => data[:code], :file => ''}
